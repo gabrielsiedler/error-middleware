@@ -1,0 +1,14 @@
+{
+  "name": "error-middleware",
+  "version": "1.0.0",
+  "description": "More control to express errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Siedler <gabrielsiedler@gmail.com> (http://gabriel.siedler.ninja)",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.8.3"
+  }
+}

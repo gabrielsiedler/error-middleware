@@ -8,7 +8,7 @@ on your `RoutesFile`:
 ```js
 import { Errors } from 'error-middleware';
 
-const { BadRequestError, ValidationError } = Errors;
+const { BadRequestError, ValidationError, NotFoundError } = Errors;
 
 /* all your routes goes here */
 

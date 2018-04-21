@@ -13,4 +13,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Errors = __importStar(require("./errors"));
 exports.Errors = Errors;
 var error_middleware_1 = __importDefault(require("./middlewares/error-middleware"));
-exports.errorHandlingMiddleware = error_middleware_1.default;
+exports.ErrorMiddleware = error_middleware_1.default;

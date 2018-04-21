@@ -10,9 +10,7 @@ import { Errors } from 'error-middleware';
 
 const { BadRequestError, ValidationError, NotFoundError } = Errors;
 
-/* all your routes goes here */
-
-router.post('/example/:id', asyncHandler(async (req, res) => {
+router.post('/example/:id', (req, res) => {
   const { id } = req.params;
   const { name, email, password } = req.body;
 
@@ -29,7 +27,7 @@ router.post('/example/:id', asyncHandler(async (req, res) => {
 
   // success path
   res.sendStatus(201);
-}));
+});
 
 // If no matches found, return 404
 router.use((req, res) => {

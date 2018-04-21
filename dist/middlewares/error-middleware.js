@@ -1,15 +1,14 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-var Errors = __importStar(require("../errors"));
+var errors_1 = require("../errors");
 var internal_error_1 = require("../errors/internal-error");
 var errorHandlingMiddleware = function (err, req, res, next) {
-    var customErrors = Object.keys(Errors);
+    var customErrors = [
+        errors_1.BadRequestError,
+        errors_1.ForbiddenError,
+        errors_1.NotFoundError,
+        errors_1.UnauthorizedError,
+        errors_1.ValidationError,
+    ];
     if (customErrors.some(function (customError) { return err instanceof customError; })) {
         res.status(err.code).send(err.output());
         return;

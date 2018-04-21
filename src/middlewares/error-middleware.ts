@@ -1,11 +1,16 @@
-import * as Errors from '../errors';
-import { CustomError } from '../errors/custom-error';
+import { BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from '../errors';
 import { InternalError } from '../errors/internal-error';
 
 const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
-  const customErrors = Object.keys(Errors);
+  const customErrors = [
+    BadRequestError,
+    ForbiddenError,
+    NotFoundError,
+    UnauthorizedError,
+    ValidationError,
+  ];
 
-  if (customErrors.some(customError => err instanceof <any> customError)) {
+  if (customErrors.some(customError => err instanceof customError)) {
     res.status(err.code).send(err.output());
     return;
   }

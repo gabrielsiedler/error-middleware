@@ -2,9 +2,15 @@
   "name": "error-middleware",
   "version": "1.0.0",
   "description": "More control to express errors",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types" : "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielsiedler/express-error-handler.git"
   },
   "author": "Gabriel Siedler <gabrielsiedler@gmail.com> (http://gabriel.siedler.ninja)",
   "license": "ISC",

@@ -1,41 +1,32 @@
-export abstract class CustomError extends Error {
-  public __proto__: Error;
-  _message: string;
-  _code: number;
-  _type: string;
+export interface Output {
+  code: number;
+  error: any;
+  type: string;
+}
 
-  constructor(message: string, code: number, type: string) {
+export abstract class CustomError extends Error {
+  // tslint:disable-next-line:variable-name
+  public __proto__: Error;
+  public message: string;
+  public code: number;
+  public type: string;
+
+  constructor(message = '', code = 400, type = 'CustomError') {
     const trueProto = new.target.prototype;
     super();
 
     this.__proto__ = trueProto;
 
-    this._message = message;
-    this._code = code;
-    this._type = type;
+    this.message = message;
+    this.code = code;
+    this.type = type;
   }
 
-  get code() {
-    return this._code || 400;
-  }
-
-  get type() {
-    return this._type || 'CustomError';
-  }
-
-  get message() {
-    return this._message || '';
-  }
-
-  output(){
-    const output: {
-      code: number,
-      type: string,
-      error: any,
-    } = {
+  output() {
+    const output: Output = {
       code: this.code,
+      error: undefined,
       type: this.type,
-      error: null,
     };
 
     if (this.message) {

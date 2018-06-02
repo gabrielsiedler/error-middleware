@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "tslint src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.8.8",
+    "tslint": "^5.10.0"
   }
 }

@@ -1,7 +1,7 @@
 import { CustomError } from './custom-error';
 
 export class NotFoundError extends CustomError {
-  constructor() {
-    super('Not found.', 404, 'NotFound');
+  constructor(message: string = 'Not found.') {
+    super(message, 404, 'NotFound');
   }
 }

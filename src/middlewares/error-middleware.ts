@@ -15,7 +15,7 @@ const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
     return;
   }
 
-  const internalError = new InternalError();
+  const internalError = new InternalError(err);
 
   res.status(internalError.code).send(internalError.output());
 };

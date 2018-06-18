@@ -20,4 +20,4 @@ const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
   res.status(internalError.code).send(internalError.output());
 };
 
-export = errorHandlingMiddleware;
+export default errorHandlingMiddleware;

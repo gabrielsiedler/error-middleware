@@ -1,12 +1,12 @@
 {
   "name": "error-middleware",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "More control to express errors",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "scripts": {
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
-    "build": "tsc",
+    "clean": "rm -rf ./errors && rm -rf ./middlewares && rm -rf ./index.js && rm -rf ./index.d.ts",
+    "build": "npm run clean && tsc",
     "lint": "tslint src/**/*.ts"
   },
   "repository": {
@@ -15,11 +15,15 @@
   },
   "author": "Gabriel Siedler <gabrielsiedler@gmail.com> (http://gabriel.siedler.ninja)",
   "license": "ISC",
-  "devDependencies": {
-    "typescript": "^2.8.3"
+  "peerDependencies": {
+    "express-validator": "^5.2.0"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@types/express": "^4.16.0",
     "@types/jasmine": "^2.8.8",
-    "tslint": "^5.10.0"
+    "express": "^4.16.3",
+    "express-validator": "^5.2.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
   }
 }

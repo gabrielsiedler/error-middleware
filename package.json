@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
-    "clean": "rm -rf ./errors && rm -rf ./middlewares && rm -rf ./index.js && rm -rf ./index.d.ts",
-    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "copy-package": "cp package.json dist",
+    "copy-readme": "cp README.md dist",
+    "build": "npm run clean && tsc && npm run copy-readme && npm run copy-package",
+    "build-and-publish": "npm run build && cd dist && npm publish",
     "lint": "tslint src/**/*.ts"
   },
   "repository": {

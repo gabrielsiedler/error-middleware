@@ -11,8 +11,4 @@
 .DS_Store
 
 # Built
-/errors
-/middlewares
-/index.js
-/index.d.ts
-/spec
+dist

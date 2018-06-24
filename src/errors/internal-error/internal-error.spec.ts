@@ -1,4 +1,4 @@
-import { CustomError } from '../custom-error';
+import { CustomError } from '../custom-error/custom-error';
 import { InternalError } from './internal-error';
 
 const DEFAULT_INTERNAL_MESSAGE = 'An error occurred. Please try again later.';

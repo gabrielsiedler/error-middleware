@@ -1,4 +1,4 @@
-import { CustomError } from '../custom-error';
+import { CustomError } from '../custom-error/custom-error';
 import { NotFoundError } from './not-found-error';
 
 describe('NotFoundError', () => {

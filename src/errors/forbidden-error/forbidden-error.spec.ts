@@ -1,4 +1,4 @@
-import { CustomError } from '../custom-error';
+import { CustomError } from '../custom-error/custom-error';
 import { ForbiddenError } from './forbidden-error';
 
 describe('ForbiddenError', () => {

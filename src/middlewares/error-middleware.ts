@@ -1,7 +1,7 @@
 import { BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from '../errors';
 import { InternalError } from '../errors/internal-error';
 
-const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
+export const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
   const customErrors = [
     BadRequestError,
     ForbiddenError,
@@ -19,5 +19,3 @@ const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
 
   res.status(internalError.code).send(internalError.output());
 };
-
-export default errorHandlingMiddleware;

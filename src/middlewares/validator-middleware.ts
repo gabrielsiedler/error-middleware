@@ -1,7 +1,7 @@
 import { validationResult } from 'express-validator/check';
 import { ValidationError } from '../errors';
 
-const handleValidationMiddleware = (req: any, res: any, next: any) => {
+export const handleValidationMiddleware = (req: any, res: any, next: any) => {
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
@@ -15,5 +15,3 @@ const handleValidationMiddleware = (req: any, res: any, next: any) => {
 const validate = (schema: any) => {
   return [schema, handleValidationMiddleware];
 };
-
-export default validate;

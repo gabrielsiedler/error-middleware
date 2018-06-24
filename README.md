@@ -6,9 +6,7 @@ This package handles errors on the express code and returns it with a fixed patt
 
 on your `RoutesFile`:
 ```js
-import { Errors } from 'error-middleware';
-
-const { BadRequestError, ValidationError, NotFoundError } = Errors;
+import { BadRequestError, ValidationError, NotFoundError } = from 'error-middleware/errors';
 
 router.post('/example/:id', (req, res) => {
   const { id } = req.params;
@@ -37,9 +35,24 @@ router.use((req, res) => {
 
 On your `app` file (express definitions) add it after the other routes:
 ```js
-import { ErrorMiddleware } from 'error-middleware';
+import errorMiddleware from 'error-middleware';
 
 router.use(RoutersFile);
 
-router.use(ErrorMiddleware);
+router.use(errorMiddleware);
+```
+
+---
+
+You can also integrate with `express-validator`:
+```js
+import ValidationMiddleware from 'error-middleware/middlewares';
+import { checkSchema } from 'express-validator/check';
+
+const validationSchema = { ... };
+
+router.post('/example/:id', validationMiddleware(checkSchema(validationSchema)), (req, res) => {
+  ...
+});
+
 ```

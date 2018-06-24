@@ -1,5 +1,5 @@
-import { BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from '../errors';
-import { InternalError } from '../errors/internal-error';
+import { BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from '../../errors';
+import { InternalError } from '../../errors/internal-error/internal-error';
 
 export const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
   const customErrors = [

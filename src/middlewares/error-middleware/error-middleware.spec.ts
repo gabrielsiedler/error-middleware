@@ -1,0 +1,1 @@
+xdescribe('errorMiddleware', () => { /* no tests */ });

@@ -10,7 +10,7 @@
     "copy-readme": "cp README.md dist",
     "build": "npm run clean && tsc && npm run copy-readme && npm run copy-package",
     "build-and-publish": "npm run build && cd dist && npm publish",
-    "lint": "tslint src/**/*.ts",
+    "lint": "tslint -p tsconfig.json",
     "test": "ts-node jasmine.js"
   },
   "repository": {

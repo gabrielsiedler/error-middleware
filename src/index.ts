@@ -1,3 +1,3 @@
-import errorMiddleware from './middlewares/error-middleware';
+import { errorMiddleware } from './middlewares';
 
 export default errorMiddleware;

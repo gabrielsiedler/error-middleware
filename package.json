@@ -10,7 +10,8 @@
     "copy-readme": "cp README.md dist",
     "build": "npm run clean && tsc && npm run copy-readme && npm run copy-package",
     "build-and-publish": "npm run build && cd dist && npm publish",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "test": "ts-node jasmine.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,14 @@
     "@types/jasmine": "^2.8.8",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
+    "jasmine": "^3.1.0",
+    "jasmine-console-reporter": "^3.0.2",
+    "ts-node": "^7.0.0",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2"
+  },
+  "engines": {
+    "node": ">=6.4.0",
+    "npm": ">=3.10.3"
   }
 }

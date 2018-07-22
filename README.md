@@ -1,6 +1,6 @@
 # Error Middleware for Express
 ![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/express-error-handler.svg "Build status")
-
+![code coverage](https://coveralls.io/repos/github/gabrielsiedler/express-error-handler/badge.svg?branch=master "Code Coverage")
 
 This package handles errors on the express code and returns it with a fixed pattern. Preventing any leaks from your code.
 

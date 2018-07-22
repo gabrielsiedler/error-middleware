@@ -24,3 +24,9 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - run: npm run test-coverage
+      - run:
+          name: Moving coverage to artifacts
+          command: |
+            mv coverate /tmp/artifacts
+

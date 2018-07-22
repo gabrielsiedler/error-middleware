@@ -12,3 +12,5 @@
 
 # Built
 dist
+coverage
+.nyc_output

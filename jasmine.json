@@ -1,0 +1,11 @@
+{
+  "spec_dir": ".",
+  "spec_files": [
+    "src/**/*.spec.ts",
+    "e2e/**/*.spec.ts"
+  ],
+  "helpers": [
+    "./node_modules/ts-node/register.js",
+    "./node_modules/source-map-support/register.js"
+  ]
+}

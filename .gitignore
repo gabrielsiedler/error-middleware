@@ -9,3 +9,8 @@
 !.vscode/extensions.json
 
 .DS_Store
+
+# Built
+dist
+coverage
+.nyc_output

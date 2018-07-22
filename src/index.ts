@@ -1,7 +1,3 @@
-import * as Errors from './errors';
-import ErrorMiddleware from './middlewares/error-middleware';
+import { errorMiddleware } from './middlewares';
 
-export {
-  Errors,
-  ErrorMiddleware,
-};
+export default errorMiddleware;

@@ -25,8 +25,6 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run test-coverage
-      - run:
-          name: Moving coverage to artifacts
-          command: |
-            mv coverage /tmp/artifacts
+      - store_artifacts:
+          path: /coverage
 

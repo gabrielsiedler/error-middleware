@@ -28,5 +28,5 @@ jobs:
       - run:
           name: Moving coverage to artifacts
           command: |
-            mv coverate /tmp/artifacts
+            mv coverage /tmp/artifacts
 

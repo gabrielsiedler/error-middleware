@@ -12,7 +12,8 @@
     "build-and-publish": "npm run build && cd dist && npm publish",
     "lint": "tslint -p tsconfig.json",
     "test": "ts-node jasmine.js",
-    "test-coverage": "nyc --reporter=lcov --reporter=text-lcov ts-node jasmine.js"
+    "test-coverage": "nyc --reporter=lcov --reporter=text-lcov ts-node jasmine.js",
+    "publish-coverage": "coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@types/express": "^4.16.0",
     "@types/jasmine": "^2.8.8",
     "axios": "^0.18.0",
+    "coveralls": "^3.0.2",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
     "jasmine": "^3.1.0",

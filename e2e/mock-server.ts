@@ -1,7 +1,8 @@
 import express from 'express';
 import { checkSchema, ValidationParamSchema } from '../node_modules/express-validator/check';
+import errorMiddleware from '../src';
 import { NotFoundError } from '../src/errors';
-import { errorMiddleware, validationMiddleware } from '../src/middlewares';
+import { validationMiddleware } from '../src/middlewares';
 
 const app = express();
 const port = '3476';

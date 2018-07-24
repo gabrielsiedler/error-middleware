@@ -115,7 +115,7 @@ import { checkSchema } from 'express-validator/check';
 
 const validationSchema = { ... };
 
-router.post('/example/:id', validationMiddleware(checkSchema(validationSchema)), (req, res) => {
+router.post('/example/:id', validationMiddleware(validationSchema), (req, res) => {
   ...
 });
 

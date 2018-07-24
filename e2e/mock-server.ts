@@ -1,5 +1,5 @@
 import express from 'express';
-import { checkSchema, ValidationParamSchema } from '../node_modules/express-validator/check';
+import { ValidationParamSchema } from '../node_modules/express-validator/check';
 import errorMiddleware from '../src';
 import { NotFoundError } from '../src/errors';
 import { validationMiddleware } from '../src/middlewares';
@@ -24,7 +24,7 @@ const schema: Record<string, ValidationParamSchema> = {
   },
 };
 
-app.use('/with-schema', validationMiddleware(checkSchema(schema)), (req, res, next) => {
+app.use('/with-schema', validationMiddleware(schema), (req, res, next) => {
   res.sendStatus(200);
 });
 

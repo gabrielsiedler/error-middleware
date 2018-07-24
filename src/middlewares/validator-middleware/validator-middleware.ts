@@ -1,4 +1,4 @@
-import { validationResult } from 'express-validator/check';
+import { checkSchema, validationResult } from 'express-validator/check';
 import { ValidationError } from '../../errors';
 
 const handleValidationMiddleware = (req: any, res: any, next: any) => {
@@ -13,5 +13,5 @@ const handleValidationMiddleware = (req: any, res: any, next: any) => {
 };
 
 export const validate = (schema: any) => {
-  return [schema, handleValidationMiddleware];
+  return [...checkSchema(schema), handleValidationMiddleware];
 };

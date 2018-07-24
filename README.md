@@ -111,7 +111,6 @@ You can also integrate with `express-validator`:
 
 ```js
 import { validationMiddleware } from 'error-middleware/middlewares';
-import { checkSchema } from 'express-validator/check';
 
 const validationSchema = { ... };
 

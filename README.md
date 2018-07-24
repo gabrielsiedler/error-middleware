@@ -110,7 +110,7 @@ This package handles errors on the express code and returns it with a fixed patt
 You can also integrate with `express-validator`:
 
 ```js
-import ValidationMiddleware from 'error-middleware/middlewares';
+import { validationMiddleware } from 'error-middleware/middlewares';
 import { checkSchema } from 'express-validator/check';
 
 const validationSchema = { ... };

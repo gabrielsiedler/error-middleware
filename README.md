@@ -26,7 +26,7 @@ This package handles errors on the express code and returns it with a fixed patt
 - routes.js
 
   ```js
-  import { BadRequestError, ValidationError, NotFoundError } = from 'error-middleware/errors';
+  import { BadRequestError, ValidationError, NotFoundError } from 'error-middleware/errors';
 
   router.put('/example/:id', (req, res) => {
     const { id } = req.params;

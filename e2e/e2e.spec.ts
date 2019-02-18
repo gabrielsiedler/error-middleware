@@ -52,41 +52,5 @@ describe('E2E tests', () => {
         });
       });
     });
-
-    describe('when using schema', () => {
-      describe('when calling without id', () => {
-        it('returns 400 with validation errors', (done) => {
-          request({
-            method: 'GET',
-            url: 'http://localhost:3476/with-schema',
-          }).then((response: any) => {
-            const { data } = response;
-
-            expect(data).toBeTruthy();
-            expect(data.code).toBe(400);
-            expect(data.type).toBe('Validation');
-            expect(data.error.id).toBeTruthy();
-            expect(data.error.id.location).toEqual('query');
-            expect(data.error.id.msg).toEqual('ID is wrong');
-            expect(data.error.id.param).toEqual('id');
-
-            done();
-          });
-        });
-      });
-
-      describe('when calling with id', () => {
-        it('returns 200', (done) => {
-          request({
-            method: 'GET',
-            url: 'http://localhost:3476/with-schema?id=2',
-          }).then((response: any) => {
-            expect(response.status).toBe(200);
-
-            done();
-          });
-        });
-      });
-    });
   });
 });

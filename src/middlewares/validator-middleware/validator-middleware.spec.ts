@@ -1,1 +1,0 @@
-xdescribe('validatorMiddleware', () => { /* no tests */ });

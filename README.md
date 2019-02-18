@@ -1,5 +1,6 @@
 # Error Middleware for Express
-![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/express-error-handler.svg "Build status")
+
+![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/error-middleware.svg "Build status")
 ![code coverage](https://coveralls.io/repos/github/gabrielsiedler/express-error-handler/badge.svg?branch=master "Code Coverage")
 
 This package handles errors on the express code and returns it with a fixed pattern. It works for syncronous and asyncronous routes.
@@ -15,8 +16,8 @@ This package handles errors on the express code and returns it with a fixed patt
 - app.js
 
   ```js
-  import errorMiddleware from 'error-middleware';
-  import myRoutes from './routes';
+  import errorMiddleware from "error-middleware";
+  import myRoutes from "./routes";
 
   router.use(myRoutes);
 
@@ -26,9 +27,13 @@ This package handles errors on the express code and returns it with a fixed patt
 - routes.js
 
   ```js
-  import { BadRequestError, ValidationError, NotFoundError } from 'error-middleware/errors';
+  import {
+    BadRequestError,
+    ValidationError,
+    NotFoundError
+  } from "error-middleware/errors";
 
-  router.put('/example/:id', (req, res) => {
+  router.put("/example/:id", (req, res) => {
     const { id } = req.params;
     const { name, email } = req.body;
 
@@ -38,18 +43,18 @@ This package handles errors on the express code and returns it with a fixed patt
 
     if (!validate(name, email)) {
       throw new ValidationError({
-        name: 'Name should be at least 4 characters long',
-        email: 'Invalid email',
+        name: "Name should be at least 4 characters long",
+        email: "Invalid email"
       });
     }
 
     // { ... }
-    
+
     res.sendStatus(200);
   });
 
-  router.get('/error', (req, res) => {
-    throw new Error('Some error.');
+  router.get("/error", (req, res) => {
+    throw new Error("Some error.");
   });
 
   // If no matches found, return 404
@@ -102,20 +107,3 @@ This package handles errors on the express code and returns it with a fixed patt
     error: "Not found."
   }
   ```
-
----
-
-## Integration
-
-You can also integrate with `express-validator`:
-
-```js
-import { validationMiddleware } from 'error-middleware/middlewares';
-
-const validationSchema = { ... };
-
-router.post('/example/:id', validationMiddleware(validationSchema), (req, res) => {
-  ...
-});
-
-```

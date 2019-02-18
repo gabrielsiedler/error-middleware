@@ -1,6 +1,6 @@
 {
   "name": "error-middleware",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "More control to express errors",
   "main": "index.js",
   "scripts": {

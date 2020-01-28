@@ -1,1 +1,3 @@
-xdescribe('errorMiddleware', () => { /* no tests */ });
+xdescribe('errorMiddleware', () => {
+  /* no tests */
+})

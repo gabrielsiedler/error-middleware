@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017"],
     "module": "commonjs",
     "target": "es6",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "outDir": "./dist"
   },
-  "exclude": [
-    "test.ts",
-    "e2e",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["test.ts", "e2e", "**/*.spec.ts"]
 }

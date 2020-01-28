@@ -1,3 +1,3 @@
-import { errorMiddleware } from './middlewares';
+import { errorMiddleware } from './middlewares'
 
-export default errorMiddleware;
+export default errorMiddleware

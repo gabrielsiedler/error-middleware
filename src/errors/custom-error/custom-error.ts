@@ -1,20 +1,20 @@
 export interface Output {
-  code: number;
-  error: any;
-  type: string;
+  code: number
+  error: any
+  type: string
 }
 
 export abstract class CustomError extends Error {
-  public message: string;
-  public code: number;
-  public type: string;
+  public message: string
+  public code: number
+  public type: string
 
   constructor(message = '', code = 400, type = 'CustomError') {
-    super();
+    super()
 
-    this.message = message;
-    this.code = code;
-    this.type = type;
+    this.message = message
+    this.code = code
+    this.type = type
   }
 
   output() {
@@ -22,12 +22,12 @@ export abstract class CustomError extends Error {
       code: this.code,
       error: undefined,
       type: this.type,
-    };
-
-    if (this.message) {
-      output.error = this.message;
     }
 
-    return output;
+    if (this.message) {
+      output.error = this.message
+    }
+
+    return output
   }
 }

@@ -59,5 +59,10 @@
       "html"
     ],
     "all": true
+  },
+  "dependencies": {
+    "prettier": "^1.19.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-consistent-codestyle": "^1.16.0"
   }
 }

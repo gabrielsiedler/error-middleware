@@ -1,4 +1,4 @@
-import { request } from './http-friend';
+import { request } from './http-friend.spec';
 import './mock-server';
 
 describe('E2E tests', () => {

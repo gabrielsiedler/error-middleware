@@ -9,7 +9,7 @@ export abstract class CustomError extends Error {
   public code: number
   public type: string
 
-  constructor(message = '', code = 400, type = 'CustomError') {
+  constructor(message, code, type) {
     super()
 
     this.message = message

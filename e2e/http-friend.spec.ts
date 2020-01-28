@@ -5,10 +5,10 @@ const request = (options) => {
     try {
       axios(options)
         .then((response) => {
-          return resolve(response || {})
+          return resolve(response)
         })
         .catch(({ response }) => {
-          return resolve(response || {})
+          return resolve(response)
         })
     } catch (error) {
       return resolve({})

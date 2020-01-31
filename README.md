@@ -1,109 +1,105 @@
 # Error Middleware for Express
 
-![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/error-middleware.svg "Build status")
+![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/error-middleware.svg 'Build status')
 [![Coverage Status](https://coveralls.io/repos/github/gabrielsiedler/error-middleware/badge.svg?branch=master)](https://coveralls.io/github/gabrielsiedler/error-middleware?branch=master)
 
-This package handles errors on the express code and returns it with a fixed pattern. It works for syncronous and asyncronous routes.
+This package handles errors on the express code and returns it with a fixed pattern, without leaks. It works with syncronous and asyncronous route functions.
 
 ## Installation
 
-`npm i -S error-middleware`
+`npm install error-middleware`<br/>
+or<br/>
+`yarn add error-middleware`
 
-## Example
+---
 
-### - Files
+## Error Types
 
-- app.js
+Currently the middleware has exposed the following error types:
+
+- `BadRequestError`
+- `ForbiddenError`
+- `NotFoundError`
+- `UnauthorizedError`
+- `Validation Error`
+
+But you can also use
+
+- `CustomError`
+
+## Error response format
+
+The consumer will receive a JSON object with `code`, `type` and `error` as folows:
+
+```
+{
+  code: <error code>,
+  type: <error type>,
+  error: <error message>
+}
+```
+
+## Example of expected responses
+
+| Code                                                                                                                                                               | Response                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <pre lang="js">throw new BadRequestError('User "id" is malformed.')</pre>                                                                                          | <pre><code>{<br/>&nbsp;&nbsp;"code": 400,<br/>&nbsp;&nbsp;"type": "BadRequest",<br/>&nbsp;&nbsp;"error": "User 'id' is malformed."<br/>}</code></pre>                                                                                                                               |
+| <pre lang="js">throw new ValidationError({<br/>&nbsp;&nbsp;name: 'Name should be at least 4 characters long',<br/>&nbsp;&nbsp;email: 'Invalid email',<br/>})</pre> | <pre><code>{<br/>&nbsp;&nbsp;"code": 400,<br/>&nbsp;&nbsp;"type": "Validation",<br/>&nbsp;&nbsp;"error": { <br/>&nbsp;&nbsp;&nbsp;&nbsp;name: 'Name should be at least 4 characters long',<br/>&nbsp;&nbsp;&nbsp;&nbsp;email: 'Invalid email',<br/>&nbsp;&nbsp;}<br/>}</code></pre> |
+
+## How to use
+
+Please look at [examples](./examples/simple-server) folders where you can check functional servers using this middleware.
+
+- src/**index.js**<br />
+  _Where you declare all your high level routes. The middleware should be last to be able to catch all errors._
 
   ```js
-  import errorMiddleware from "error-middleware";
-  import myRoutes from "./routes";
+  import errorMiddleware from 'error-middleware'
+  import routes from './routes'
 
-  router.use(myRoutes);
+  router.use(routes)
 
-  router.use(errorMiddleware);
+  router.use(errorMiddleware)
   ```
 
-- routes.js
+- src/**routes.js**
 
   ```js
-  import {
-    BadRequestError,
-    ValidationError,
-    NotFoundError
-  } from "error-middleware/errors";
+  import { BadRequestError, ValidationError, NotFoundError } from 'error-middleware/errors'
 
-  router.put("/example/:id", (req, res) => {
-    const { id } = req.params;
-    const { name, email } = req.body;
+  router.put('/user/:id', (req, res) => {
+    const { id } = req.params
+    const { name, email } = req.body
 
-    if (/d{4}/.test(id)) {
-      throw new BadRequestError(`User 'id' is malformed.`);
+    const idRegex = /^\d{4}$/
+    if (!idRegex.test(id)) {
+      throw new BadRequestError(`User 'id' is malformed.`)
     }
 
     if (!validate(name, email)) {
       throw new ValidationError({
-        name: "Name should be at least 4 characters long",
-        email: "Invalid email"
-      });
+        name: 'Name should be at least 4 characters long',
+        email: 'Invalid email',
+      })
     }
 
+    // your update logic goes here
     // { ... }
 
-    res.sendStatus(200);
-  });
+    res.sendStatus(200)
+  })
 
-  router.get("/error", (req, res) => {
-    throw new Error("Some error.");
-  });
+  router.get('/error', (req, res) => {
+    // an endpoint that simulates a pure error being thrown. It will be translated to InternalError and all its content will not be leaked.
+    throw new Error('Internal error that should not be leaked.')
+  })
 
   // If no matches found, return 404
   router.use((req, res) => {
-    throw new NotFoundError();
-  });
+    throw new NotFoundError()
+  })
   ```
 
-### - Example API behavior
+---
 
-- PUT to `/example/23`
-
-  ```
-  {
-    code: 400,
-    type: "BadRequest",
-    error: "User 'id' is malformed."
-  }
-  ```
-
-- PUT to `/example/2323` with `{ name: '', email: 'someemail.com' }`
-
-  ```
-  {
-    code: 400,
-    type: "Validation",
-    error: {
-      name: "Name should be at least 4 characters long",
-      email: "Invalid email"
-    }
-  }
-  ```
-
-- GET to `/error`
-
-  ```
-  {
-    code: 500,
-    type: "InternalError",
-    error: "An error occurred. Please try again later."
-  }
-  ```
-
-- GET to `/somethingelse`
-
-  ```
-  {
-    code: 404,
-    type: "NotFound",
-    error: "Not found."
-  }
-  ```
+Check [examples](./examples/simple-server) for more

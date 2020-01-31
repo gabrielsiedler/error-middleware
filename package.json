@@ -13,7 +13,7 @@
     "build-and-publish": "npm run build && cd dist && npm publish",
     "lint": "tslint -p tsconfig.json",
     "test": "ts-node jasmine.js",
-    "test-coverage": "nyc --reporter=lcov --reporter=text-lcov ts-node jasmine.js",
+    "test-coverage": "nyc --reporter=lcov --reporter=text-lcov ts-node jasmine.js --collectCoverageFrom=!/examples/**/*",
     "publish-coverage": "coveralls < coverage/lcov.info"
   },
   "keywords": [

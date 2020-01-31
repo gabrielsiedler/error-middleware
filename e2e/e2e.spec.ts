@@ -46,7 +46,7 @@ describe('E2E tests', () => {
           expect(data).toBeTruthy()
           expect(data.code).toBe(500)
           expect(data.type).toBe('InternalError')
-          expect(data.error).toBe('An error occurred. Please try again later.')
+          expect(data.error).toBe('An internal error occurred.')
 
           done()
         })

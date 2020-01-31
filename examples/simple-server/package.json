@@ -1,0 +1,22 @@
+{
+  "name": "simple-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Siedler <gabrielsiedler@gmail.com> (http://gabriel.siedler.ninja)",
+  "license": "ISC",
+  "dependencies": {
+    "error-middleware": "^4.1.1",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "morgan": "^1.9.1",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.5"
+  }
+}

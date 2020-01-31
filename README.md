@@ -45,7 +45,7 @@ The consumer will receive a JSON object with `code`, `type` and `error` as folow
 
 ## Example of expected responses
 
-<table>
+<table style="width: 100%">
   <tr>
     <th>Code</th>
     <th>Response</th>

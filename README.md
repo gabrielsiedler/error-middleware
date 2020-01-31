@@ -73,16 +73,16 @@ The consumer will receive a JSON object with `code`, `type` and `error` as folow
   <tr>
     <td><pre lang="js"><code>
 throw new ValidationError({
-  name: 'Name is too short',
-  email: 'Invalid email'
+  name: 'Name is too short.',
+  email: 'Invalid email.'
 })</code></pre></td>
     <td><pre lang="json"><code>
 {
   "code": 400,
   "type": "Validation",
   "error": {
-    "name": "Name is too short",
-    "email": "Invalid email"
+    "name": "Name is too short.",
+    "email": "Invalid email."
   }
 }</code></pre></td>
   </tr>

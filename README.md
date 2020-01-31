@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./em.png">
+</p>
+
 # Error Middleware for Express
 
 ![build status](https://img.shields.io/circleci/project/github/gabrielsiedler/error-middleware.svg 'Build status')

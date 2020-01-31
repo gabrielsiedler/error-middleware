@@ -86,6 +86,17 @@ throw new ValidationError({
   }
 }</code></pre></td>
   </tr>
+  <tr>
+    <td><pre lang="js"><code>
+throw new Error(`Invalid user ${userId}`)
+</code></pre></td>
+    <td><pre lang="json"><code>
+{
+  "code": 500,
+  "type": "InternalError",
+  "error": "An internal error occurred."
+}</code></pre></td>
+  </tr>
 </table>
 
 ## How to use

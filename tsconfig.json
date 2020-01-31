@@ -11,5 +11,5 @@
     "allowJs": true,
     "outDir": "./dist"
   },
-  "exclude": ["test.ts", "e2e", "**/*.spec.ts"]
+  "exclude": ["test.ts", "e2e", "**/*.spec.ts", "examples"]
 }

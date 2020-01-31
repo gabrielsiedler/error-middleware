@@ -1,3 +1,10 @@
+<style>
+  @-moz-document domain("github.com") {
+    .markdown-body table th, .markdown-body table td {
+      word-break: break-all;
+    }
+  }
+</style>
 <p align="center">
   <img src="./em.png">
 </p>

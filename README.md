@@ -45,10 +45,20 @@ The consumer will receive a JSON object with `code`, `type` and `error` as folow
 
 ## Example of expected responses
 
-| Code                                                                                                                          | Response                                                                                                                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <pre lang="js">throw new BadRequestError('User "id" is malformed.')</pre>                                                     | <pre lang="json"><code>{ "code": 400, "type": "BadRequest", "error": "User 'id' is malformed." }</code></pre>                                                         |
-| <pre lang="js">throw new ValidationError({ name: 'Name should be at least 4 characters long', email: 'Invalid email' })</pre> | <pre lang="json"><code>{ "code": 400, "type": "Validation", "error": { "name": "Name should be at least 4 characters long", "email": "Invalid email" } }</code></pre> |
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Response</th>
+  </tr>
+  <tr>
+    <td><pre lang="js">throw new BadRequestError('User "id" is malformed.')</pre></td>
+    <td><pre lang="json"><code>{ "code": 400, "type": "BadRequest", "error": "User 'id' is malformed." }</code></pre></td>
+  </tr>
+  <tr>
+    <td><pre lang="js">throw new ValidationError({ name: 'Name should be at least 4 characters long', email: 'Invalid email' })</pre></td>
+    <td><pre lang="json"><code>{ "code": 400, "type": "Validation", "error": { "name": "Name should be at least 4 characters long", "email": "Invalid email" } }</code></pre></td>
+  </tr>
+</table>
 
 ## How to use
 

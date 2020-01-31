@@ -48,8 +48,6 @@ The consumer will receive a JSON object with `code`, `type` and `error` as folow
 
 ## How to use
 
-Please look at [examples](./examples/simple-server) folders where you can check functional servers using this middleware.
-
 - src/**index.js**<br />
   _Where you declare all your high level routes. The middleware should be last to be able to catch all errors._
 

@@ -58,8 +58,22 @@ The consumer will receive a JSON object with `code`, `type` and `error` as folow
     <th>Response</th>
   </tr>
   <tr>
-    <td><pre lang="js">throw new BadRequestError('User "id" is malformed.')</pre></td>
-    <td><pre lang="json"><code>{ "code": 400, "type": "BadRequest", "error": "User 'id' is malformed." }</code></pre></td>
+    <td>
+      <pre lang="js">
+        <code>throw new BadRequestError('User "id" is malformed.')</code>
+      </pre>
+    </td>
+    <td>
+      <pre lang="json">
+        <code>
+          {
+            "code": 400,
+            "type": "BadRequest",
+            "error": "User 'id' is malformed."
+          }
+        </code>
+      </pre>
+    </td>
   </tr>
   <tr>
     <td><pre lang="js">throw new ValidationError({ name: 'Name should be at least 4 characters long', email: 'Invalid email' })</pre></td>

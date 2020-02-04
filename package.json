@@ -2,7 +2,7 @@
   "name": "error-middleware",
   "version": "4.2.1",
   "description": "More control to express errors",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
     "clean": "rm -rf ./dist",

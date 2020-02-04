@@ -1,14 +1,15 @@
 {
   "name": "error-middleware",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "description": "More control to express errors",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts",
     "clean": "rm -rf ./dist",
     "copy-package": "cp package.json dist",
     "copy-readme": "cp README.md dist",
-    "build": "npm run clean && tsc && npm run copy-readme && npm run copy-package",
+    "remove-dist-src": "cd dist; cp -R src/* .; rm -rf src",
+    "build": "npm run clean && tsc && npm run copy-readme && npm run copy-package && npm run remove-dist-src",
     "build-and-pack": "npm run build && cd dist && npm pack",
     "build-and-publish": "npm run build && cd dist && npm publish",
     "lint": "tslint -p tsconfig.json",

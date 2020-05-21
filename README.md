@@ -81,6 +81,20 @@ throw new ValidationError({
   </tr>
   <tr>
     <td><pre lang="js"><code>
+throw new CustomError(
+  'Not acceptable headers',
+  406,
+  'NotAcceptable'
+)</code></pre></td>
+    <td><pre lang="json"><code>
+{
+  "code": 406,
+  "type": "NotAcceptable",
+  "error": "Not acceptable headers"
+}</code></pre></td>
+  </tr>
+  <tr>
+    <td><pre lang="js"><code>
 throw new Error(`Invalid user ${userId}`)
 </code></pre></td>
     <td><pre lang="json"><code>

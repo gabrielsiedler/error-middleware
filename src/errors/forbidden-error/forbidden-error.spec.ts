@@ -1,4 +1,4 @@
-import { BaseError } from '../base-error/base-error'
+import { BaseError } from '../base-error'
 import { ForbiddenError } from './forbidden-error'
 
 describe('ForbiddenError', () => {

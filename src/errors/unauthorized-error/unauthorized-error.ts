@@ -1,4 +1,4 @@
-import { BaseError } from '../base-error/base-error'
+import { BaseError } from '../base-error'
 
 export class UnauthorizedError extends BaseError {
   constructor(message: any = 'Unauthorized.') {

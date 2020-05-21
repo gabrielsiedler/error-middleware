@@ -1,4 +1,4 @@
-import { BaseError } from '../base-error/base-error'
+import { BaseError } from '../base-error'
 import { InternalError } from './internal-error'
 
 const DEFAULT_INTERNAL_MESSAGE = 'An internal error occurred.'

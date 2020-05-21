@@ -1,10 +1,24 @@
-import { BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from '../../errors'
-import { InternalError } from '../../errors/internal-error/internal-error'
+import {
+  BadRequestError,
+  CustomError,
+  ForbiddenError,
+  NotFoundError,
+  UnauthorizedError,
+  ValidationError,
+} from '../../errors'
+import { InternalError } from '../../errors/internal-error'
 
 export const errorHandlingMiddleware = (err: any, req: any, res: any, next: any) => {
-  const customErrors = [BadRequestError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError]
+  const middlewareErrors = [
+    BadRequestError,
+    CustomError,
+    ForbiddenError,
+    NotFoundError,
+    UnauthorizedError,
+    ValidationError,
+  ]
 
-  if (customErrors.some((customError) => err instanceof customError)) {
+  if (middlewareErrors.some((middlewareError) => err instanceof middlewareError)) {
     res.status(err.code).send(err.output())
 
     return

@@ -1,4 +1,4 @@
-import { BaseError } from '../base-error/base-error'
+import { BaseError } from '../base-error'
 
 class TestingError extends BaseError {
   constructor(message: any = 'Error for testing.') {

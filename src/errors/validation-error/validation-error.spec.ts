@@ -1,4 +1,4 @@
-import { BaseError } from '../base-error/base-error'
+import { BaseError } from '../base-error'
 import { ValidationError } from './validation-error'
 
 describe('ValidationError', () => {

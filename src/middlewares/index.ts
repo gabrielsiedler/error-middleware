@@ -1,1 +1,1 @@
-export { errorHandlingMiddleware as errorMiddleware } from './error-middleware/error-middleware'
+export { errorMiddleware } from './error-middleware'

@@ -1,6 +1,6 @@
 {
   "name": "error-middleware",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "More control to express errors",
   "main": "src/index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "express": "^4.16.3",
     "jasmine": "^3.1.0",
     "jasmine-console-reporter": "^3.0.2",
+    "minimist": ">=1.2.3",
     "nyc": "^13.3.0",
     "ts-node": "^7.0.0",
     "tslint": "^5.10.0",

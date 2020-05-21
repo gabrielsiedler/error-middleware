@@ -1,28 +1,29 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error'
+import { CustomError } from './custom-error'
 
-class TestingError extends CustomError {
-  constructor(message: any = 'Error for testing.') {
-    super(message, 418, `I'm a teapot.`)
-  }
-}
-
-describe('ForbiddenError', () => {
+describe('CustomError', () => {
   describe('when object is created with default args', () => {
-    it('custom class is instance of CustomError', () => {
-      const error = new TestingError()
+    it('is instance of BaseError', () => {
+      const error = new CustomError()
+
+      expect(error instanceof BaseError).toBeTruthy()
+    })
+
+    it('is instance of CustomError', () => {
+      const error = new CustomError()
 
       expect(error instanceof CustomError).toBeTruthy()
     })
 
     describe('when output is called', () => {
-      it('returns default error and code', () => {
-        const error = new TestingError()
+      it('returns default error, code and type', () => {
+        const error = new CustomError()
 
         const output = error.output()
 
-        expect(output.code).toEqual(418)
-        expect(output.type).toEqual(`I'm a teapot.`)
-        expect(output.error).toEqual('Error for testing.')
+        expect(output.code).toEqual(400)
+        expect(output.error).toEqual('Error.')
+        expect(output.type).toEqual('CustomError')
       })
     })
   })
@@ -30,15 +31,17 @@ describe('ForbiddenError', () => {
   describe('when object is created with custom args', () => {
     describe('when output is called', () => {
       it('returns custom error', () => {
-        const error = new TestingError('Custom message.')
+        const error = new CustomError('Custom message.', 406, 'NotJava')
 
         const output = error.output()
 
+        expect(output.code).toEqual(406)
         expect(output.error).toEqual('Custom message.')
+        expect(output.type).toEqual('NotJava')
       })
 
       it('returns custom error type', () => {
-        const error = new TestingError({ myError: { deep: true, more: [null, 'some'] } })
+        const error = new CustomError({ myError: { deep: true, more: [null, 'some'] } })
 
         const output = error.output()
 

@@ -1,6 +1,6 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 
-export class ValidationError extends CustomError {
+export class ValidationError extends BaseError {
   constructor(message: any = 'Validation error.') {
     super(message, 400, 'Validation')
   }

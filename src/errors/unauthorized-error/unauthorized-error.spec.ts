@@ -1,12 +1,12 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 import { UnauthorizedError } from './unauthorized-error'
 
 describe('UnauthorizedError', () => {
   describe('when object is created with default args', () => {
-    it('is instance of CustomError', () => {
+    it('is instance of BaseError', () => {
       const error = new UnauthorizedError()
 
-      expect(error instanceof CustomError).toBeTruthy()
+      expect(error instanceof BaseError).toBeTruthy()
     })
 
     it('is instance of UnauthorizedError', () => {

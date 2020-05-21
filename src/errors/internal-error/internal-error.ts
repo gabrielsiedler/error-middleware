@@ -1,6 +1,6 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 
-export class InternalError extends CustomError {
+export class InternalError extends BaseError {
   constructor(error?: any) {
     // tslint:disable-next-line:no-console
     console.error('Internal error: ', error)

@@ -1,6 +1,6 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 
-export class BadRequestError extends CustomError {
+export class BadRequestError extends BaseError {
   constructor(message: any = 'Bad request.') {
     super(message, 400, 'BadRequest')
   }

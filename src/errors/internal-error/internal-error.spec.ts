@@ -1,14 +1,14 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 import { InternalError } from './internal-error'
 
 const DEFAULT_INTERNAL_MESSAGE = 'An internal error occurred.'
 
 describe('InternalError', () => {
   describe('when object is created with default args', () => {
-    it('is instance of CustomError', () => {
+    it('is instance of BaseError', () => {
       const error = new InternalError()
 
-      expect(error instanceof CustomError).toBeTruthy()
+      expect(error instanceof BaseError).toBeTruthy()
     })
 
     it('is instance of InternalError', () => {

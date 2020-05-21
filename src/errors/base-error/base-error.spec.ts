@@ -1,6 +1,6 @@
-import { CustomError } from '../custom-error/custom-error'
+import { BaseError } from '../base-error/base-error'
 
-class TestingError extends CustomError {
+class TestingError extends BaseError {
   constructor(message: any = 'Error for testing.') {
     super(message, 418, `I'm a teapot.`)
   }
@@ -8,10 +8,10 @@ class TestingError extends CustomError {
 
 describe('ForbiddenError', () => {
   describe('when object is created with default args', () => {
-    it('custom class is instance of CustomError', () => {
+    it('custom class is instance of BaseError', () => {
       const error = new TestingError()
 
-      expect(error instanceof CustomError).toBeTruthy()
+      expect(error instanceof BaseError).toBeTruthy()
     })
 
     describe('when output is called', () => {

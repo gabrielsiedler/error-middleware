@@ -8,8 +8,9 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "allowJs": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true
   },
   "exclude": ["test.ts", "e2e", "**/*.spec.ts", "examples"]
 }
